@@ -109,7 +109,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 2975
+  controlID: 1426
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 2976
+  controlID: 1499
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 221}
   m_MaxSize: {x: 8004, y: 4021}
   vertical: 0
-  controlID: 2977
+  controlID: 1500
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -365,10 +365,10 @@ MonoBehaviour:
     width: 281
     height: 375
   m_TreeViewState:
-    scrollPos: {x: 0, y: 90}
-    m_SelectedIDs: 
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 102b0000
     m_LastClickedID: 0
-    m_ExpandedIDs: a6fbffff000000005a2800008c280000
+    m_ExpandedIDs: a6fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -423,9 +423,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 105.31748, y: -63.77147, z: 68.12383}
+    m_Target: {x: 103.68812, y: -79.13028, z: 52.45612}
     speed: 2
-    m_Value: {x: 105.31748, y: -63.77147, z: 68.12383}
+    m_Value: {x: 103.68812, y: -79.13028, z: 52.45612}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -448,13 +448,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.21403633, y: -0.46452743, z: 0.11678855, w: -0.8513302}
+    m_Target: {x: 0.25203967, y: 0.49380803, z: -0.15210833, w: 0.8182254}
     speed: 2
-    m_Value: {x: -0.21403633, y: -0.46452743, z: 0.11678855, w: -0.8513302}
+    m_Value: {x: 0.25203967, y: 0.49380803, z: -0.15210833, w: 0.8182254}
   m_Size:
-    m_Target: 180.37984
+    m_Target: 175.07506
     speed: 2
-    m_Value: 180.37984
+    m_Value: 175.07506
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -530,19 +530,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Materials
+    - Assets
   m_ViewMode: 1
-  m_StartGridSize: 87
+  m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Materials
+  - Assets
   m_LastFoldersGridSize: 87
   m_LastProjectPath: C:\Users\Secil\Documents\GitHub\ISE-304-Project
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 30270000
-    m_LastClickedID: 10032
-    m_ExpandedIDs: 000000001227000000ca9a3bffffff7f
+    m_SelectedIDs: 12270000
+    m_LastClickedID: 10002
+    m_ExpandedIDs: 00000000122700005027000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -570,7 +570,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000001227000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000122700005027000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -622,8 +622,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 40}
-    m_GridSize: 87
+    m_ScrollPosition: {x: 0, y: 0}
+    m_GridSize: 16
   m_DirectoriesAreaWidth: 115
 --- !u!114 &17
 MonoBehaviour:
