@@ -1,24 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.UI;
+public class Roll : NetworkBehaviour{
 
-public class Roll : MonoBehaviour {
-
-    Rigidbody rb;
+    GameObject dice;
     
-    // Use this for initialization
-	void Start () {
-
+    private void Start()
+    {
+        GameObject[] textFields = GameObject.FindGameObjectsWithTag("DiceValText");
+        for (int i = 0; i < 2; i++)
+        {
+            textFields[i].GetComponent<Text>().text = "";
+        }
+            dice = gameObject;
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void RollDice()
     {
-        rb = GetComponent<Rigidbody>();
+        
+        dice = Instantiate(gameObject);
+        Rigidbody rb = dice.GetComponent<Rigidbody>();
         int r = Random.Range(0, 1);
         if (r == 0)
         {

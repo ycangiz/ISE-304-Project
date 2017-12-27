@@ -75,13 +75,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Move.cs" />
+    <Compile Include="Assets\Pawn.cs" />
     <Compile Include="Assets\Scripts\BounceScript.cs" />
     <Compile Include="Assets\Scripts\Dice.cs" />
     <Compile Include="Assets\Scripts\DrawCard.cs" />
     <Compile Include="Assets\Scripts\FollowDice.cs" />
     <Compile Include="Assets\Scripts\Gamer.cs" />
     <Compile Include="Assets\Scripts\Main.cs" />
-    <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
+    <Compile Include="Assets\Scripts\MatchCtrl.cs" />
     <Compile Include="Assets\Scripts\PropertyClass.cs" />
     <Compile Include="Assets\Scripts\Roll.cs" />
   </ItemGroup>

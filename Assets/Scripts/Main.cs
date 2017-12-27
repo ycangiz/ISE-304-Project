@@ -1,34 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class Main : MonoBehaviour {
+public class Main : NetworkBehaviour {
 
-    List<Gamer> PlayerNames;
+    List<Gamer> Gamers;
+    GameObject[] players;
     int turnCounter;
     Gamer currentPlayer;
-	// Use this for initialization
 	void Start () {
         turnCounter = 0;
 
-        PlayerNames.Add(new Gamer(1));
-        PlayerNames.Add(new Gamer(2));
-        PlayerNames.Add(new Gamer(3));
-        PlayerNames.Add(new Gamer(4));
-
-        currentPlayer = PlayerNames[turnCounter];
+        players = GameObject.FindGameObjectsWithTag("Player");
+        Gamers[0] = new Gamer("Player1", players[0]);
+        Gamers[1] = new Gamer("Player1", players[1]);
+        Gamers[2] = new Gamer("Player1", players[2]);
+        Gamers[3] = new Gamer("Player1", players[3]);
+        currentPlayer = Gamers[turnCounter%4];
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    void Update () {
         ChangeTurn();
 	}
 
     void ChangeTurn()
     {
-        if(currentPlayer.done())
+        if (currentPlayer.done())
         {
-            currentPlayer = PlayerNames[++turnCounter];
+            currentPlayer = Gamers[++turnCounter];
         }
     }
 }

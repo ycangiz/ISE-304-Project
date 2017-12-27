@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 using System;
 namespace Monopoly
 {
-    public class Dice : MonoBehaviour
+    public class Dice : NetworkBehaviour
     {
 
         public Text t;
@@ -12,22 +13,24 @@ namespace Monopoly
         public bool isMoving;
         Transform faceup;
         float y = 0;
-        
-        // Use this for initialization
+
+
         void Start()
         {
-            rb = GetComponent<Rigidbody>();
+            rb = gameObject.GetComponent<Rigidbody>();
             isMoving = true;
         }
+
 
         // Update is called once per frame
         void Update()
         {
             speed = rb.velocity.magnitude;
 
-            if (speed == 0)
+            if (speed == 0 && rb.position.y < 1)
             {
-                isMoving = false;
+                rb = GetComponent<Rigidbody>();
+                isMoving = true;
             }
             if (!isMoving)
             {
@@ -42,13 +45,22 @@ namespace Monopoly
                 showDice();
 
             }
-
         }
 
         public int showDice()
         {
-            t.text = faceup.gameObject.name;
-            return Convert.ToInt32(t.text);
+            GameObject[] textFields = GameObject.FindGameObjectsWithTag("DiceValText");
+            for (int i = 0; i < 2; i++)
+            {
+                if (textFields[i].GetComponent<Text>().text == "")
+                {
+                    textFields[i].GetComponent<Text>().text = faceup.gameObject.name;
+                    i = 3;
+                }
+            }
+            //Destroy(gameObject);
+            Debug.Log(faceup.gameObject.name);
+            return Convert.ToInt32(faceup.gameObject.name);
         }
     }
 }

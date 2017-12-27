@@ -4,6 +4,14 @@ using UnityEngine;
 using Monopoly;
 public class Move : MonoBehaviour
 {
+    public float speed = 2f;
+    
+    float cameraDistance = 8f;
+    float cameraHeight = 8f;
+
+    Vector3 cameraOffset;
+    Transform mainCamera;
+
     public int counter = 0;
     bool updater = true;
     Dice d1;
@@ -15,6 +23,16 @@ public class Move : MonoBehaviour
 
     void Start()
     {
+        if (!isLocalPlayer)
+        {
+            Destroy(this);
+            return;
+        }
+
+        cameraOffset = new Vector3(0f, cameraHeight, cameraDistance);
+        mainCamera = Camera.main.transform;
+        MoveCamera();
+
         GameObject dice1 = GameObject.Find("Dice1");
         GameObject dice2 = GameObject.Find("Dice2");
         d1 = dice1.GetComponent<Dice>();
@@ -132,6 +150,7 @@ public class Move : MonoBehaviour
                     {
                         counter = 0;
                     }
+                MoveCamera();
             }
             //updater = false;
         }
@@ -139,5 +158,12 @@ public class Move : MonoBehaviour
     void Update()
     {
         mainMovement();
+    }
+    void MoveCamera()
+    {
+        mainCamera.position = transform.position;
+        mainCamera.rotation = transform.rotation;
+        mainCamera.Translate(cameraOffset);
+        mainCamera.LookAt(transform);
     }
 }
