@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Gamer{
 
-    private string name;
+    public int playerNum;
     public int money { get; private set; }
+    public int location;
     public List<Property> properties;
-    private bool turn = false;
-    public Gamer(string username)
+    public bool turn = false;
+    public Gamer(int num)
     {
-        name = username;
+        playerNum = num;
         money = 20000;
     }
 

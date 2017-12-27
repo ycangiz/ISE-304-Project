@@ -1,47 +1,54 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-
-public class Dice : MonoBehaviour {
-
-    public Text t;
-    float speed;
-    Rigidbody rb;
-    bool isMoving;
-    Transform faceup;
-    float y = 0;
-	// Use this for initialization
-	void Start () {
-        rb = GetComponent<Rigidbody>();
-        isMoving = true;
-	}
-
-    // Update is called once per frame
-    void Update()
+using System;
+namespace Monopoly
+{
+    public class Dice : MonoBehaviour
     {
-        speed = rb.velocity.magnitude;
 
-        if (speed == 0)
+        public Text t;
+        float speed;
+        Rigidbody rb;
+        public bool isMoving;
+        Transform faceup;
+        float y = 0;
+        
+        // Use this for initialization
+        void Start()
         {
-            isMoving = false;
+            rb = GetComponent<Rigidbody>();
+            isMoving = true;
         }
-        if (!isMoving)
+
+        // Update is called once per frame
+        void Update()
         {
-            for (int i=0; i<6; i++)
+            speed = rb.velocity.magnitude;
+
+            if (speed == 0)
             {
-                if(transform.GetChild(i).position.y > y)
-                {
-                    y = transform.GetChild(i).position.y;
-                    faceup = transform.GetChild(i);
-                }
+                isMoving = false;
             }
-            showDice();
-            
+            if (!isMoving)
+            {
+                for (int i = 0; i < 6; i++)
+                {
+                    if (transform.GetChild(i).position.y > y)
+                    {
+                        y = transform.GetChild(i).position.y;
+                        faceup = transform.GetChild(i);
+                    }
+                }
+                showDice();
+
+            }
+
         }
 
-    }
-
-    private void showDice()
-    {
-        t.text = faceup.gameObject.name;
+        public int showDice()
+        {
+            t.text = faceup.gameObject.name;
+            return Convert.ToInt32(t.text);
+        }
     }
 }
