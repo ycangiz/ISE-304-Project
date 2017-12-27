@@ -1,16 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class Move : MonoBehaviour
+public class Move : NetworkBehaviour
 {
 
     public float speed = 2f;
     int counter = 0;
-    // Use this for initialization
+
+    float cameraDistance = 8f;
+    float cameraHeight = 8f;
+
+    Vector3 cameraOffset;
+    Transform mainCamera;
+
     void Start()
     {
+        if (!isLocalPlayer)
+        {
+            Destroy(this);
+            return;
+        }
 
+        cameraOffset = new Vector3(0f, cameraHeight, cameraDistance);
+        mainCamera = Camera.main.transform;
+        MoveCamera();
     }
 
     void moveRight4()
@@ -106,5 +121,13 @@ public class Move : MonoBehaviour
                 counter = 0;
             }
         }
+        MoveCamera();
+    }
+    void MoveCamera()
+    {
+        mainCamera.position = transform.position;
+        mainCamera.rotation = transform.rotation;
+        mainCamera.Translate(cameraOffset);
+        mainCamera.LookAt(transform);
     }
 }
