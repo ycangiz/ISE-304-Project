@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISE-304-Project", "ISE-304-Project.csproj", "{5829537F-1190-6953-E6F1-16025298B85E}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WindowsApp1", "..\WindowsApp1\WindowsApp1.vbproj", "{4FF53DF2-42F0-4D26-A459-BAA7A67AF01F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{5829537F-1190-6953-E6F1-16025298B85E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5829537F-1190-6953-E6F1-16025298B85E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5829537F-1190-6953-E6F1-16025298B85E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FF53DF2-42F0-4D26-A459-BAA7A67AF01F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FF53DF2-42F0-4D26-A459-BAA7A67AF01F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FF53DF2-42F0-4D26-A459-BAA7A67AF01F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FF53DF2-42F0-4D26-A459-BAA7A67AF01F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
