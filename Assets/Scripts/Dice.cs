@@ -2,11 +2,14 @@
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using System;
-namespace Monopoly
+using MoveClass;
+using GamerClass;
+using RollClass1;
+using RollClass2;
+namespace DiceClass
 {
     public class Dice : NetworkBehaviour
     {
-
         public Text t;
         float speed;
         Rigidbody rb;
@@ -14,13 +17,13 @@ namespace Monopoly
         Transform faceup;
         float y = 0;
 
-
         void Start()
         {
             rb = gameObject.GetComponent<Rigidbody>();
             isMoving = true;
+            Gamer movement = GameObject.FindGameObjectWithTag("Player").GetComponent<Gamer>();
+            movement.startMoving = true;
         }
-
 
         // Update is called once per frame
         void Update()
@@ -29,8 +32,8 @@ namespace Monopoly
 
             if (speed == 0 && rb.position.y < 1)
             {
-                rb = GetComponent<Rigidbody>();
-                isMoving = true;
+                //rb = GetComponent<Rigidbody>();
+                isMoving = false;
             }
             if (!isMoving)
             {
@@ -42,25 +45,25 @@ namespace Monopoly
                         faceup = transform.GetChild(i);
                     }
                 }
-                showDice();
-
             }
         }
 
         public int showDice()
         {
-            GameObject[] textFields = GameObject.FindGameObjectsWithTag("DiceValText");
-            for (int i = 0; i < 2; i++)
+            
+            string n = faceup.gameObject.name;
+            if (gameObject.name=="Dice1(Clone)")
             {
-                if (textFields[i].GetComponent<Text>().text == "")
-                {
-                    textFields[i].GetComponent<Text>().text = faceup.gameObject.name;
-                    i = 3;
-                }
+                gameObject.GetComponent<Roll1>().textFields.GetComponent<Text>().text=faceup.gameObject.name;
             }
-            //Destroy(gameObject);
+            else if (gameObject.name == "Dice2(Clone)")
+            {
+                gameObject.GetComponent<Roll2>().textFields.GetComponent<Text>().text = faceup.gameObject.name;
+            }
+            
             Debug.Log(faceup.gameObject.name);
-            return Convert.ToInt32(faceup.gameObject.name);
+            Destroy(gameObject);
+            return Convert.ToInt32(n);
         }
     }
 }
