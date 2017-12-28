@@ -6,18 +6,20 @@ using UnityEngine.Networking;
 
 public class Gamer : NetworkBehaviour{
 
+
     public GameObject attached;
-    private string pname;
+    public int playerNum;
+    public int location;
     public int money;
     public List<Property> properties;
-    private bool turn = false;
+    public bool turn = false;
     Button button = GameObject.FindGameObjectWithTag("endbutton").GetComponent<Button>();
 
-    public Gamer(string username, GameObject g)
+    public Gamer(int num, GameObject g)
     {
         button.onClick.AddListener(CmdEndTurn);
         attached = g;
-        name = username;
+        playerNum = num;
         money = 20000;
     }
 
