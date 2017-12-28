@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
-public class Dice : MonoBehaviour {
+public class Dice : NetworkBehaviour {
 
     public Text t;
     float speed;
@@ -9,18 +10,18 @@ public class Dice : MonoBehaviour {
     bool isMoving;
     Transform faceup;
     float y = 0;
-	// Use this for initialization
+
+
 	void Start () {
-        rb = GetComponent<Rigidbody>();
+        rb = gameObject.GetComponent<Rigidbody>();
         isMoving = true;
 	}
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         speed = rb.velocity.magnitude;
 
-        if (speed == 0)
+        if (speed == 0 && rb.position.y<1)
         {
             isMoving = false;
         }
@@ -40,8 +41,19 @@ public class Dice : MonoBehaviour {
 
     }
 
-    private void showDice()
+    public string showDice()
     {
-        t.text = faceup.gameObject.name;
+        GameObject[] textFields = GameObject.FindGameObjectsWithTag("DiceValText");
+        for (int i = 0; i < 2; i++)
+        {
+            if (textFields[i].GetComponent<Text>().text== "")
+            {
+                textFields[i].GetComponent<Text>().text = faceup.gameObject.name;
+                i=3;
+            }
+        }
+        //Destroy(gameObject);
+        Debug.Log (faceup.gameObject.name);
+        return faceup.gameObject.name;
     }
 }
