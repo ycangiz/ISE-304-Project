@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using GamerClass;
 public class NewBehaviourScript : MonoBehaviour {
 
     public const string MatchReady = "MatchController.Ready";

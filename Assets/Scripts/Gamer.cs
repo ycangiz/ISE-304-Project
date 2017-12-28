@@ -3,43 +3,64 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
-
-public class Gamer : NetworkBehaviour{
-
-
-    public GameObject attached;
-    public int playerNum;
-    public int location;
-    public int money;
-    public List<Property> properties;
-    public bool turn = false;
-    Button button = GameObject.FindGameObjectWithTag("endbutton").GetComponent<Button>();
-
-    public Gamer(int num, GameObject g)
+using MoveClass;
+namespace GamerClass
+{
+    public class Gamer : NetworkBehaviour
     {
-        button.onClick.AddListener(CmdEndTurn);
-        attached = g;
-        playerNum = num;
-        money = 20000;
+
+        public bool startMoving = false;
+
+        public GameObject attached;
+        public int playerNum;
+        public int location=0;
+        public int money;
+        public List<Property> properties;
+        public bool turn = false;
+        Button button = GameObject.FindGameObjectWithTag("endbutton").GetComponent<Button>();
+
+
+
+        public Gamer(int num, GameObject g)
+        {
+            button.onClick.AddListener(CmdEndTurn);
+            attached = g;
+            playerNum = num;
+            money = 20000;
+        }
+
+        public void moveBiatch()
+        {
+            Move movement = GetComponent<Move>();
+            movement.mainMovement();
+        }
+
+
+        [Command]
+        public void CmdStartTurn()
+        {
+            turn = true;
+        }
+
+        [Command]
+        public void CmdEndTurn()
+        {
+            turn = false;
+            Debug.Log("Turn ended");
+        }
+
+
+        public bool done()
+        {
+            return !turn;
+        }
+        void Update()
+        {
+            if (startMoving)
+            {
+                moveBiatch();
+                //startMoving = false;
+            }
+        }
     }
-
-    [Command]
-    public void CmdStartTurn()
-    {
-        turn = true;
-    }
-
-    [Command]
-    public void CmdEndTurn()
-    {
-        turn = false;
-        Debug.Log("Turn ended");
-    }
-
-
-    public bool done()
-    {
-        return !turn;
-    }
-
 }

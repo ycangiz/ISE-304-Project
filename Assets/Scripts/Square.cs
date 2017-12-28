@@ -65,11 +65,6 @@ public class Square : MonoBehaviour {
         }
     }
 
-    public Square()
-    {
-
-    }
-
 	// Use this for initialization
 	void Start () {
 		
