@@ -21,7 +21,8 @@ public class Main : NetworkBehaviour {
     }
 
     void Update () {
-        ChangeTurn();
+        //ChangeTurn();
+
 	}
 
     void ChangeTurn()

@@ -61,7 +61,7 @@ namespace DiceClass
                 gameObject.GetComponent<Roll2>().textFields.GetComponent<Text>().text = faceup.gameObject.name;
             }
             
-            Debug.Log(faceup.gameObject.name);
+            //Debug.Log(faceup.gameObject.name);
             Destroy(gameObject);
             return Convert.ToInt32(n);
         }

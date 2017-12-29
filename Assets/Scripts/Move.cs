@@ -37,6 +37,10 @@ namespace MoveClass
                 Destroy(this);
                 return;
             }
+
+            gameObject.GetComponent<Gamer>().buy = GameObject.Find("BuyButton");
+            gameObject.GetComponent<Gamer>().pass = GameObject.Find("PassButton");       
+
             counter = gameObject.GetComponent<Gamer>().location;
 
             cameraOffset = new Vector3(0f, cameraHeight, cameraDistance);
@@ -45,12 +49,7 @@ namespace MoveClass
         }
         
         public void checkDice()
-        {
-            /*
-            d1 = GameObject.FindGameObjectWithTag("Dice1(clone)").GetComponent<Dice>();
-            d2 = GameObject.FindGameObjectWithTag("Dice2(clone)").GetComponent<Dice>();
-            */
-            
+        {           
             GameObject dice1 = GameObject.Find("Dice1(Clone)");
             GameObject dice2 = GameObject.Find("Dice2(Clone)");
             d1 = dice1.GetComponent<Dice>();
@@ -170,6 +169,8 @@ namespace MoveClass
                     if (counter == 40)
                     {
                         counter = 0;
+                        gameObject.GetComponent<Gamer>().money = gameObject.GetComponent<Gamer>().money + 200;
+                        Debug.Log("Passed the starting point, earned 200$");
                     }
                     MoveCamera();
                 }
