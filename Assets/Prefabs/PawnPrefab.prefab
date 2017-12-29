@@ -663,8 +663,11 @@ MonoBehaviour:
   attached: {fileID: 0}
   playerNum: 0
   location: 0
-  money: 0
-  turn: 0
+  money: -200
+  turn: 1
+  buy: {fileID: 0}
+  pass: {fileID: 0}
+  t: {fileID: 0}
 --- !u!135 &135632417513823632
 SphereCollider:
   m_ObjectHideFlags: 1
