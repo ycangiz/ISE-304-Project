@@ -663,7 +663,7 @@ MonoBehaviour:
   attached: {fileID: 0}
   playerNum: 0
   location: 0
-  money: -200
+  money: 19640
   turn: 1
   buy: {fileID: 0}
   pass: {fileID: 0}

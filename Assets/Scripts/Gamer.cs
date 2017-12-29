@@ -36,6 +36,7 @@ namespace GamerClass
         }
         public Gamer(int num, GameObject g)
         {
+            money = 20000;
             button.onClick.AddListener(CmdEndTurn);
             attached = g;
             playerNum = num;
@@ -70,13 +71,16 @@ namespace GamerClass
             if (Board.squares[location].owner == 0)
             {
                 Debug.Log("Money Test");
-                Debug.Log(location);
-                Debug.Log(Board.squares[location].name);
-                money = money - Board.squares[location].buyPrice;
+                Debug.Log(Board.squares[GameObject.FindGameObjectWithTag("Player").GetComponent<Gamer>().location].buyPrice);
+                Debug.Log(Board.squares[GameObject.FindGameObjectWithTag("Player").GetComponent<Gamer>().location].name);
+                Debug.Log(money);
+                money = money - Board.squares[GameObject.FindGameObjectWithTag("Player").GetComponent<Gamer>().location].buyPrice;
+                Debug.Log(money);
+                GameObject.Find("CoinText").GetComponent<Text>().text = "$" + money;
             }
             else if (Board.squares[location].owner == -1)
             {
-                money = money - Board.squares[location].rent;
+                money = money - Board.squares[GameObject.FindGameObjectWithTag("Player").GetComponent<Gamer>().location].rent;
             }
         }
 

@@ -37,7 +37,7 @@ namespace MoveClass
                 Destroy(this);
                 return;
             }
-
+            gameObject.GetComponent<Gamer>().money = 20000;
             gameObject.GetComponent<Gamer>().buy = GameObject.Find("BuyButton");
             gameObject.GetComponent<Gamer>().pass = GameObject.Find("PassButton");       
 

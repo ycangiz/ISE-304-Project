@@ -13,6 +13,6 @@ public class Money : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        gameObject.GetComponent<Text>().text = "$" + GameObject.FindGameObjectWithTag("Player").GetComponent<Gamer>().money;
+        gameObject.GetComponentInChildren<Text>().text = "$" + GameObject.FindGameObjectWithTag("Player").GetComponent<Gamer>().money;
 	}
 }
