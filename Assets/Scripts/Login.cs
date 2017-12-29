@@ -67,7 +67,7 @@ public class Login : MonoBehaviour {
             }
         }
         else {
-            t.text = ("Username field empty!");
+            t.text = ("Password field empty!");
         }
         if (UN == true && PW == true) {
             username.GetComponent<InputField>().text="";
